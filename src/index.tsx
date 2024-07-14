@@ -1,3 +1,4 @@
+// @ts-ignore
 import { WebView } from 'react-native-webview';
 
 export function BrowserView({ url }: { url: string }) {

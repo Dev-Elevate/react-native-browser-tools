@@ -1,3 +1,5 @@
+import type { urlType } from '../types/types';
+
 class Stack<T> {
   private items: T[];
 
@@ -38,20 +40,24 @@ class Stack<T> {
   print(): void {
     console.log(this.items.toString());
   }
+
+  get() {
+    return this.items;
+  }
 }
 
-const stack = new Stack<number>();
+export const tabsUrlStack = new Stack<urlType>();
 
-stack.push(10);
-stack.push(20);
-stack.push(30);
+// stack.push(10);
+// stack.push(20);
+// stack.push(30);
 
-console.log(stack.pop());
-console.log(stack.peek());
-console.log(stack.size());
-console.log(stack.isEmpty());
+// console.log(stack.pop());
+// console.log(stack.peek());
+// console.log(stack.size());
+// console.log(stack.isEmpty());
 
-stack.print();
+// stack.print();
 
-stack.clear();
-console.log(stack.isEmpty());
+// stack.clear();
+// console.log(stack.isEmpty());
