@@ -1,35 +1,38 @@
-import { useState, useEffect ,useCallback} from 'react';
-import { StyleSheet, View, Text,TextInput } from 'react-native';
-import {BrowserView} from "react-native-browser-tools"
-
+import { useState, useEffect, useCallback } from 'react';
+import { StyleSheet, View, Text, TextInput } from 'react-native';
+import { WebView } from 'react-native-webview';
+import {
+  BrowserView,
+  BrowerTools,
+  BrowserInput,
+} from 'react-native-browser-tools';
 
 export default function App() {
-  const [result, setResult] = useState<string >("https://know-rohit.vercel.app");
-
-  const checkUrlValid = useCallback((url: string) =>{
+  const [url, setURL] = useState<string>('know-rohit.vercel.app');
+  const [error, setError] = useState<string>('No Error');
+  const [nativeEvent, setNativeEvent] = useState<any>();
+  const checkUrlValid = useCallback((url: string) => {
     try {
       new URL(url);
     } catch (e) {
       return false;
     }
     return true;
-  },[])
+  }, []);
 
+  const attachHttp = useCallback((url: string) => {
+    if (!url.includes('http')) {
+      return 'https://' + url;
+    }
+    return url;
+  }, []);
 
   return (
     <View style={styles.container}>
-      <TextInput value={result} onChangeText={(url)=>{
-        if(checkUrlValid(url)){
-          setResult(url)
-        }else{
-            setResult("https://"+url)
-        }
-      
-      }
-        
-        } />
-      <BrowserView url={result}/>
-      {/* <WebView  source={{uri:result}} style={{flex:1}}></WebView> */}
+      <BrowerTools>
+        <BrowserInput />
+        <BrowserView />
+      </BrowerTools>
     </View>
   );
 }
