@@ -1,9 +1,11 @@
 import { useState, useCallback } from 'react';
-import { StyleSheet, View, TextInput } from 'react-native';
-import { BrowserView } from 'react-native-browser-tools';
+import { StyleSheet, View, TextInput, Pressable, Text } from 'react-native';
+import { BrowserView, useRouter } from 'react-native-browser-tools';
 
 export default function App() {
   const [result, setResult] = useState<string>('https://know-rohit.vercel.app');
+
+  const { pushRoute, goBack, urls } = useRouter();
 
   const checkUrlValid = useCallback((url: string) => {
     try {
@@ -27,6 +29,69 @@ export default function App() {
         }}
       />
       <BrowserView url={result} />
+      <View style={{ flexDirection: 'row' }}>
+        <TextInput
+          style={{
+            width: 300,
+            padding: 4,
+            borderWidth: 1,
+            borderColor: 'gray',
+            borderRadius: 4,
+            marginTop: 5,
+          }}
+          value={result}
+          onChangeText={(url) => {
+            if (checkUrlValid(url)) {
+              setResult(url);
+            } else {
+              setResult('https://' + url);
+            }
+          }}
+        />
+        <Pressable
+          style={{
+            backgroundColor: '#C8E812',
+            paddingHorizontal: 4,
+            borderRadius: 4,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginLeft: 12,
+          }}
+          onPress={() => {
+            pushRoute(result);
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 12,
+            }}
+          >
+            Push URL
+          </Text>
+        </Pressable>
+        <Pressable
+          style={{
+            backgroundColor: '#C8E812',
+            paddingHorizontal: 4,
+            borderRadius: 4,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginLeft: 12,
+          }}
+          onPress={() => {
+            goBack();
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 12,
+            }}
+          >
+            Pop url
+          </Text>
+        </Pressable>
+      </View>
+      <Text>{JSON.stringify(urls)}</Text>
       {/* <WebView  source={{uri:result}} style={{flex:1}}></WebView> */}
     </View>
   );

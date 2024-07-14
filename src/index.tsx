@@ -1,6 +1,3 @@
-// @ts-ignore
-import { WebView } from 'react-native-webview';
-
-export function BrowserView({ url }: { url: string }) {
-  return <WebView source={{ uri: url }} style={{ flex: 1 }}></WebView>;
-}
+export { BrowserView } from './BrowserView';
+export { useHistory } from './hooks/useHistory';
+export { useRouter } from './hooks/useRouter';
