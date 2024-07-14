@@ -52,3 +52,5 @@ export function BrowerTools({ children }: { children: React.ReactNode }) {
     </BrowserContext.Provider>
   );
 }
+export { useHistory } from './hooks/useHistory';
+export { useRouter } from './hooks/useRouter';
