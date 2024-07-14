@@ -1,17 +1,35 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-browser-tools';
+import { useState, useEffect ,useCallback} from 'react';
+import { StyleSheet, View, Text,TextInput } from 'react-native';
+import {BrowserView} from "react-native-browser-tools"
+
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+  const [result, setResult] = useState<string >("https://know-rohit.vercel.app");
 
-  useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  const checkUrlValid = useCallback((url: string) =>{
+    try {
+      new URL(url);
+    } catch (e) {
+      return false;
+    }
+    return true;
+  },[])
+
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <TextInput value={result} onChangeText={(url)=>{
+        if(checkUrlValid(url)){
+          setResult(url)
+        }else{
+            setResult("https://"+url)
+        }
+      
+      }
+        
+        } />
+      <BrowserView url={result}/>
+      {/* <WebView  source={{uri:result}} style={{flex:1}}></WebView> */}
     </View>
   );
 }
@@ -19,8 +37,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 50,
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
   box: {
     width: 60,
