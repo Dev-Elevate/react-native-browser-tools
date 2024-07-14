@@ -1,6 +1,20 @@
 // @ts-ignore
-import { WebView } from 'react-native-webview';
+import { WebView, WebViewProps } from 'react-native-webview';
+import { BrowserContext } from './BrowserContext';
+import { useContext } from 'react';
+import { Text, View } from 'react-native';
 
-export function BrowserView({ url }: { url: string }) {
-  return <WebView source={{ uri: url }} style={{ flex: 1 }}></WebView>;
+export function BrowserView({ ...props }: WebViewProps) {
+  const { url, attachHttp, checkUrlValid } = useContext(BrowserContext);
+  return checkUrlValid(attachHttp(url)) ? (
+    <WebView
+      source={{ uri: attachHttp(url) }}
+      {...props}
+      style={[{ flex: 1 }, props.style]}
+    ></WebView>
+  ) : (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Invalid == {url}</Text>
+    </View>
+  );
 }

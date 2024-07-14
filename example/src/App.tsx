@@ -1,6 +1,11 @@
 import { useState, useCallback } from 'react';
 import { StyleSheet, View, TextInput, Pressable, Text } from 'react-native';
-import { BrowserView, useRouter } from 'react-native-browser-tools';
+import {
+  BrowserProvider,
+  BrowserInput,
+  BrowserView,
+  useRouter,
+} from 'react-native-browser-tools';
 
 export default function App() {
   const [result, setResult] = useState<string>('https://know-rohit.vercel.app');
@@ -28,7 +33,10 @@ export default function App() {
           }
         }}
       />
-      <BrowserView url={result} />
+      <BrowserProvider>
+        <BrowserInput />
+        <BrowserView />
+      </BrowserProvider>
       <View style={{ flexDirection: 'row' }}>
         <TextInput
           style={{
