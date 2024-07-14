@@ -1,5 +1,6 @@
 import { useCallback, useState, createContext, useContext } from 'react';
 import { Text, TextInput, View } from 'react-native';
+// @ts-ignore
 import { WebView, WebViewProps } from 'react-native-webview';
 
 const BrowserContext = createContext({
