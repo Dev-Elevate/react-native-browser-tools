@@ -1,3 +1,5 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
+import { WebView } from 'react-native-webview';
+
+export function BrowserView({ url }: { url: string }) {
+  return <WebView source={{ uri: url }} style={{ flex: 1 }}></WebView>;
 }
