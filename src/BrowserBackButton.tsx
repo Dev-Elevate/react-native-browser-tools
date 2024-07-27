@@ -1,13 +1,19 @@
 import { StyleSheet, Pressable, Text } from 'react-native';
 import { useRouter } from './hooks/useRouter';
+import { useContext } from 'react';
+import { BrowserContext } from './BrowserContext';
 
 export function BrowserBackButton({ ...props }) {
-  const { goBack, urls } = useRouter();
+  const { urls, goBack } = useRouter();
+  const { setURL } = useContext(BrowserContext);
+
   return (
     <Pressable
       onPress={() => {
         goBack();
-        console.log(urls);
+        if (urls.length > 0)
+          // @ts-ignore
+          setURL(urls[urls.length - 1]?.url);
       }}
       style={styles.container}
     >

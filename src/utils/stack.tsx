@@ -12,6 +12,7 @@ class Stack<T> {
   }
 
   pop(): T | undefined {
+    console.log(this.items, 'ITEMS', this.isEmpty());
     if (this.isEmpty()) {
       return undefined;
     }

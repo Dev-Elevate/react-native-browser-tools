@@ -2255,6 +2255,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo/metro-config@npm:0.18.9":
+  version: 0.18.9
+  resolution: "@expo/metro-config@npm:0.18.9"
+  dependencies:
+    "@babel/core": ^7.20.0
+    "@babel/generator": ^7.20.5
+    "@babel/parser": ^7.20.0
+    "@babel/types": ^7.20.0
+    "@expo/config": ~9.0.0-beta.0
+    "@expo/env": ~0.3.0
+    "@expo/json-file": ~8.3.0
+    "@expo/spawn-async": ^1.7.2
+    chalk: ^4.1.0
+    debug: ^4.3.2
+    find-yarn-workspace-root: ~2.0.0
+    fs-extra: ^9.1.0
+    getenv: ^1.0.0
+    glob: ^7.2.3
+    jsc-safe-url: ^0.2.4
+    lightningcss: ~1.19.0
+    postcss: ~8.4.32
+    resolve-from: ^5.0.0
+  checksum: 720bb621cf037e3183d4cec6be4773ba28c0b602a43cbd156637ffaebb279881a22578eaa4e106203a1664df1f521a9e5602106de843997914a97c95bcad22f2
+  languageName: node
+  linkType: hard
+
 "@expo/metro-runtime@npm:~3.2.1":
   version: 3.2.1
   resolution: "@expo/metro-runtime@npm:3.2.1"
@@ -7121,6 +7147,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-font@npm:~12.0.9":
+  version: 12.0.9
+  resolution: "expo-font@npm:12.0.9"
+  dependencies:
+    fontfaceobserver: ^2.1.0
+  peerDependencies:
+    expo: "*"
+  checksum: adad225ed6002d5d527808b8f463bc59a1a1626fb2ff34918dcbd2172757977c056101f737ed9523f6d55e0aa88a64988002eb9b6d22f379d5956883f7451379
+  languageName: node
+  linkType: hard
+
 "expo-keep-awake@npm:~13.0.2":
   version: 13.0.2
   resolution: "expo-keep-awake@npm:13.0.2"
@@ -7158,6 +7195,31 @@ __metadata:
   version: 1.12.1
   resolution: "expo-status-bar@npm:1.12.1"
   checksum: 82f2e9096660cdb521b920662908b93e1909c2bbe776802c314dff6e0863300d19ba4b9e093825b2bdc094f333010df0b8ed11fcb330e4c29a16c2d55da0aa96
+  languageName: node
+  linkType: hard
+
+"expo@npm:^51.0.22":
+  version: 51.0.22
+  resolution: "expo@npm:51.0.22"
+  dependencies:
+    "@babel/runtime": ^7.20.0
+    "@expo/cli": 0.18.25
+    "@expo/config": 9.0.3
+    "@expo/config-plugins": 8.0.8
+    "@expo/metro-config": 0.18.9
+    "@expo/vector-icons": ^14.0.0
+    babel-preset-expo: ~11.0.12
+    expo-asset: ~10.0.10
+    expo-file-system: ~17.0.1
+    expo-font: ~12.0.9
+    expo-keep-awake: ~13.0.2
+    expo-modules-autolinking: 1.11.1
+    expo-modules-core: 1.12.19
+    fbemitter: ^3.0.0
+    whatwg-url-without-unicode: 8.0.0-3
+  bin:
+    expo: bin/cli
+  checksum: 99274c8da23fa6c81825b4bdac6a264700cdf0a17cc101ed31f3700dbc78e75c6ec0e41a724b2c591269e41163f9cf52745b83e54ce831342192c0cfdd5144b6
   languageName: node
   linkType: hard
 
@@ -12524,6 +12586,7 @@ __metadata:
     eslint: ^8.51.0
     eslint-config-prettier: ^9.0.0
     eslint-plugin-prettier: ^5.0.1
+    expo: ^51.0.22
     jest: ^29.7.0
     prettier: ^3.0.3
     react: 18.2.0

@@ -13,8 +13,10 @@ export function BrowserView({ ...props }: WebViewProps) {
       style={[{ flex: 1 }, props.style]}
     ></WebView>
   ) : (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Invalid == {url}</Text>
-    </View>
+    !url && (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Enter url</Text>
+      </View>
+    )
   );
 }

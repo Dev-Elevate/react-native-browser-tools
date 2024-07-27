@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "react-native-browser-tools",
+    "slug": "react-native-browser-tools",
+    "version": "0.1.0",
+    "description": "A easy to use toolkit for adding browser like features in your React Native Applications",
+    "sdkVersion": "51.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "android": {
+      "package": "com.anonymous.reactnativebrowsertools"
+    },
+    "ios": {
+      "bundleIdentifier": "com.anonymous.reactnativebrowsertools"
+    }
+  }
+}
