@@ -7,7 +7,7 @@ import {
   BrowserBackButton,
   BrowserForwardButton,
   BrowserHeader,
-  useRouter,
+  useMetaData,
 } from 'react-native-browser-tools';
 
 export default function App() {
@@ -27,6 +27,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <BrowserProvider>
+        <MetaTitle />
         <BrowserHeader>
           <BrowserBackButton />
           <BrowserInput />
@@ -51,3 +52,9 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
 });
+
+function MetaTitle() {
+  const { metaData } = useMetaData();
+  // @ts-ignore
+  return <Text>{metaData.title}</Text>;
+}
