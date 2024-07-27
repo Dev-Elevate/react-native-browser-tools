@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import store from '../store';
-import type { Bookmark } from '../store/types';
+import store from './store';
+import type { Bookmark } from './store/types';
 
 export function useBookMark() {
   const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);

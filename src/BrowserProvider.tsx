@@ -3,6 +3,8 @@ import { BrowserContext } from './BrowserContext';
 
 export function BrowserProvider({ children }: { children: React.ReactNode }) {
   const [url, setURL] = useState<string>('know-rohit.vercel.app');
+  const [metaData, setMetaData] = useState<any>({});
+  console.log('metaData', metaData);
   const checkUrlValid = useCallback((url: string) => {
     try {
       new URL(url);
@@ -18,7 +20,9 @@ export function BrowserProvider({ children }: { children: React.ReactNode }) {
     return url;
   }, []);
   return (
-    <BrowserContext.Provider value={{ url, setURL, checkUrlValid, attachHttp }}>
+    <BrowserContext.Provider
+      value={{ url, setURL, checkUrlValid, attachHttp, metaData, setMetaData }}
+    >
       {children}
     </BrowserContext.Provider>
   );
