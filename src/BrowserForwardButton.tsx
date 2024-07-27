@@ -1,12 +1,14 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Pressable, Text } from 'react-native';
+import { useRouter } from './hooks/useRouter';
 
 export function BrowserForwardButton({ ...props }) {
+  const {} = useRouter();
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container}>
       <Text style={styles.text} {...props}>
         {'->'}
       </Text>
-    </View>
+    </Pressable>
   );
 }
 
