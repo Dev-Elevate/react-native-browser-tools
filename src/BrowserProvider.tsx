@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { BrowserContext } from './BrowserContext';
 
 export function BrowserProvider({ children }: { children: React.ReactNode }) {
-  const [url, setURL] = useState<string>('know-rohit.vercel.app');
+  const [url, setURL] = useState<string>('');
   const [metaData, setMetaData] = useState<any>({});
   console.log('metaData', metaData);
   const checkUrlValid = useCallback((url: string) => {

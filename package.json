@@ -38,7 +38,9 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "keywords": [
     "react-native",
@@ -177,5 +179,10 @@
   "create-react-native-library": {
     "type": "library",
     "version": "0.38.2"
+  },
+  "dependencies": {
+    "expo": "^51.0.22",
+    "react": "18.2.0",
+    "react-native": "0.74.3"
   }
 }

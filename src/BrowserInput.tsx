@@ -1,12 +1,16 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
 import { BrowserContext } from './BrowserContext';
 import { useRouter } from './hooks/useRouter';
 
 export function BrowserInput() {
-  const { setURL } = useContext(BrowserContext);
+  const { setURL, url } = useContext(BrowserContext);
   const [localUrl, setLocalURL] = useState<string>('');
   const { pushRoute } = useRouter();
+
+  useEffect(() => {
+    setLocalURL(url);
+  }, [url]);
   return (
     <TextInput
       style={style.input}
@@ -22,7 +26,7 @@ export function BrowserInput() {
         ) {
           setLocalURL('https://' + localUrl);
         }
-        setURL(localUrl);
+        if (url !== localUrl) setURL(localUrl);
         console.log('Pusshing', localUrl);
 
         pushRoute(localUrl);
