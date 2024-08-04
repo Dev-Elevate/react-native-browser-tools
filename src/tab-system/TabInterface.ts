@@ -3,11 +3,18 @@ class Tab {
   title: string;
   lastScreenShot: string | null = null;
   id: string;
+  type: 'Public' | 'Private' = 'Public';
 
-  constructor(id: string, url: string, title: string) {
+  constructor(
+    id: string,
+    url: string,
+    title: string,
+    type: 'Public' | 'Private' = 'Public'
+  ) {
     this.url = url;
     this.id = id;
     this.title = title;
+    this.type = type;
   }
 
   takeScreenShot() {
