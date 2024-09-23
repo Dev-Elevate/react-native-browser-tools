@@ -6,6 +6,7 @@ import { Image, Text, View } from 'react-native';
 import ViewShot from 'react-native-view-shot';
 import RNFS from 'react-native-fs';
 import { Button } from 'react-native';
+import { useBrowserNavigation } from './hooks/useRouter';
 
 export function BrowserView({ ...props }: WebViewProps) {
   const viewShotRef = useRef(null);
@@ -45,8 +46,8 @@ export function BrowserView({ ...props }: WebViewProps) {
     })();
   `;
 
-  const { url, attachHttp, checkUrlValid, setMetaData } =
-    useContext(BrowserContext);
+  const { attachHttp, checkUrlValid, setMetaData } = useContext(BrowserContext);
+  const { currentRoute } = useBrowserNavigation();
   const handleMessage = (event: any) => {
     const data = JSON.parse(event.nativeEvent.data);
     console.log(data);
@@ -56,7 +57,7 @@ export function BrowserView({ ...props }: WebViewProps) {
   return (
     <View>
       <Button title="Capture Screenshot" onPress={captureScreenshot} />
-      {checkUrlValid(attachHttp(url)) ? (
+      {checkUrlValid(attachHttp(currentRoute)) ? (
         <ViewShot
           ref={viewShotRef}
           style={{
@@ -66,7 +67,7 @@ export function BrowserView({ ...props }: WebViewProps) {
           options={{ format: 'png', quality: 1.0 }}
         >
           <WebView
-            source={{ uri: attachHttp(url) }}
+            source={{ uri: attachHttp(currentRoute) }}
             injectedJavaScript={injectedJavaScript}
             onMessage={handleMessage}
             {...props}
@@ -74,7 +75,7 @@ export function BrowserView({ ...props }: WebViewProps) {
           ></WebView>
         </ViewShot>
       ) : (
-        !url && (
+        !currentRoute && (
           <View
             style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
           >

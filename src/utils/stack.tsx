@@ -48,6 +48,7 @@ class Stack<T> {
 }
 
 export const tabsUrlStack = new Stack<urlType>();
+export const tabsPopedUrlStack = new Stack<urlType>();
 
 // stack.push(10);
 // stack.push(20);

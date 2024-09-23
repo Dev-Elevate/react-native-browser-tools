@@ -86,9 +86,9 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*",
-    "react-native-webview": "*",
     "react-native-fs": "*",
-    "react-native-view-shot": "*"
+    "react-native-view-shot": "*",
+    "react-native-webview": "*"
   },
   "workspaces": [
     "example"
@@ -185,6 +185,7 @@
   "dependencies": {
     "expo": "^51.0.22",
     "react": "18.2.0",
-    "react-native": "0.74.3"
+    "react-native": "0.74.3",
+    "zustand": "^5.0.0-rc.2"
   }
 }

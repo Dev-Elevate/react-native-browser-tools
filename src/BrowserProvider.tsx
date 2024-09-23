@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react';
 import { BrowserContext } from './BrowserContext';
+import { useBrowserNavigation } from './hooks/useRouter';
+import { Text, Pressable, TextInput } from 'react-native';
 
 export function BrowserProvider({ children }: { children: React.ReactNode }) {
   const [url, setURL] = useState<string>('');
@@ -19,6 +21,7 @@ export function BrowserProvider({ children }: { children: React.ReactNode }) {
     }
     return url;
   }, []);
+
   return (
     <BrowserContext.Provider
       value={{ url, setURL, checkUrlValid, attachHttp, metaData, setMetaData }}
